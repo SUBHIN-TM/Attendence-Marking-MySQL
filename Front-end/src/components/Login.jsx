@@ -52,7 +52,7 @@ const Login = () => {
                         <label htmlFor="password">password</label> <input autoComplete='current-password' type="password" name="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                     </div>
                     <div>
-                        <button type="submit">Submit</button>
+                        <button type="submit">Login</button>
                     </div>
 
                 </form>
