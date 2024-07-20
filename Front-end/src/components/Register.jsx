@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import axios from "axios"
+import { useNavigate } from 'react-router-dom'
 
 const Register = () => {
     const [userName, setUserName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const navigate=useNavigate()
 
     const submit = async (e) => {
         e.preventDefault()
@@ -15,6 +17,10 @@ const Register = () => {
         try {
             const response=await axios.post("http://localhost:3000/register",{userName,email,password})
             console.log(response.data);
+            if(response.status==201){
+                alert("Successfully registered")
+              navigate("/")
+            }
         } catch (error) {
            console.error(error.response.data.message);
         }
